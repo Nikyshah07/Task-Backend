@@ -9,7 +9,7 @@ const Task=require('./task')
 app.use(cors())
 app.use(express.json())
 require("dotenv").config()
-const PORT=5000;
+
 app.post('/sign',async(req,res)=>{
     const {username}=req.body;
     const {email}=req.body;
@@ -219,6 +219,6 @@ app.get("/getincomptask",authenticatetoken,async(req,res)=>{
 app.use("/",(req,res)=>{
     res.send("hello")
 })
-app.listen(PORT,()=>{
+app.listen(`${process.env.PORT}`,()=>{
     console.log("server started")
 })
